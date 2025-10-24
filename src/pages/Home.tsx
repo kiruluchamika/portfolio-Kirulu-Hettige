@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import GlassStatCard from '../components/GlassStatCard';
 import GlassCard from '../components/GlassCard';
 import GitHubInsights from '../components/GitHubInsights';
+import GitHubReadmeStats from '../components/GitHubReadmeStats';
 import { Badge } from '../components/ui/badge';
 import { Link } from 'react-router-dom';
 
@@ -110,7 +111,7 @@ export default function Home() {
       title: 'B.Sc. in Software Engineering',
       organization: 'Sri Lanka Institute of Information Technology (SLIIT)',
       period: '2022 - Present',
-      description: 'GPA: 3.8/4.0 - Focused on software architecture, algorithms, and full-stack development.',
+      description: 'GPA: 3.7/4.0 - Focused on software architecture, algorithms, and full-stack development.',
     },
     {
       type: 'education',
@@ -566,6 +567,9 @@ export default function Home() {
           {/* GitHub Insights directly under Tech Stack */}
           <div className="mt-12">
             <GitHubInsights username="kiruluchamika" />
+          </div>
+          <div className="mt-8">
+            <GitHubReadmeStats username="kiruluchamika" />
           </div>
         </div>
       </section>
