@@ -563,27 +563,11 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Section 4.5: GitHub Insights */}
-      <section className="py-10 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-              GitHub Insights
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              Live stats from my GitHub activity
-            </p>
-          </motion.div>
-
-          <GitHubInsights username="kiruluchamika" />
+          {/* GitHub Insights directly under Tech Stack */}
+          <div className="mt-12">
+            <GitHubInsights username="kiruluchamika" />
+          </div>
         </div>
       </section>
 
