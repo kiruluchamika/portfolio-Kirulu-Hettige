@@ -6,12 +6,18 @@ import GlassCard from '../components/GlassCard';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Progress } from '../components/ui/progress';
+import imgCarepro from '../assets/carepro.jpeg';
+import imgGgm from '../assets/ggm.png';
+import imgRideease from '../assets/rideease.png';
+import imgPay from '../assets/pay.png';
+import imgDigicare from '../assets/digicare.png';
+import imgFav from '../assets/fav1.png';
 
 type Project = {
   id: number;
   title: string;
   description: string;
-  category: string;
+  category: 'Web' | 'Mobile';
   tags: string[];
   progress: number;
   image: string;
@@ -20,74 +26,113 @@ type Project = {
 };
 
 const projects: Project[] = [
+  // Web projects
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'Full-stack MERN application with payment integration, admin dashboard, and real-time inventory management.',
-    category: 'Full Stack',
-    tags: ['React', 'Node.js', 'MongoDB', 'Express', 'Stripe'],
+    title: 'Golden Grain Mill',
+    description:
+      'Full‑stack system for paddy supply and rice sales with role‑based dashboards, notifications, analytics, and Stripe test payments.',
+    category: 'Web',
+    tags: ['React', 'TypeScript', 'Spring Boot', 'MySQL', 'Stripe'],
     progress: 100,
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: '#',
-    demo: '#',
+    image: imgGgm,
+    github: 'https://github.com/kiruluchamika/Golden-Grain-Mill-ITP-Project',
   },
   {
     id: 2,
-    title: 'Task Management System',
-    description: 'Enterprise-level project management tool built with Spring Boot, featuring role-based access control and real-time collaboration.',
-    category: 'Backend',
-    tags: ['Java', 'Spring Boot', 'PostgreSQL', 'JWT', 'WebSocket'],
-    progress: 85,
-    image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: '#',
+    title: 'RideEase – Transport System',
+    description:
+      'Ride‑hailing web app using Java Servlets/JSP and MySQL with Passenger, Driver, and Admin portals.',
+    category: 'Web',
+    tags: ['Java', 'JSP/Servlets', 'MySQL', 'Tailwind'],
+    progress: 95,
+    image: imgRideease,
+    github: 'https://github.com/kiruluchamika/RideEase-Transport-System-OOP-Project',
   },
   {
     id: 3,
-    title: 'UI Design System',
-    description: 'Comprehensive design system with reusable components, built with React and Tailwind CSS, featuring dark mode support.',
-    category: 'Frontend',
-    tags: ['React', 'TypeScript', 'Tailwind', 'Storybook'],
-    progress: 90,
-    image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800',
-    demo: '#',
+    title: 'CarePro – Health Insurance',
+    description:
+      'Dynamic PHP app for health insurance plans, claims, and admin dashboards — built for SLIIT IWT module.',
+    category: 'Web',
+    tags: ['PHP', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+    progress: 100,
+    image: imgCarepro,
+    github: 'https://github.com/kiruluchamika/SLIIT-IWT-Project-2024',
   },
   {
     id: 4,
-    title: 'Social Media Dashboard',
-    description: 'Analytics dashboard for social media metrics with real-time data visualization and automated reporting.',
-    category: 'Full Stack',
-    tags: ['React', 'Node.js', 'MongoDB', 'Chart.js', 'Socket.io'],
-    progress: 75,
-    image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: '#',
-    demo: '#',
+    title: 'Sandbox Payment Gateway',
+    description:
+      'Simple PayHere sandbox payment flow with card testing, secure front-end and PHP processing.',
+    category: 'Web',
+    tags: ['PHP', 'JavaScript', 'HTML', 'CSS'],
+    progress: 90,
+    image: imgPay,
+    github: 'https://github.com/kiruluchamika/Simple-Sandbox-Payment-Gateway-Integration',
   },
   {
     id: 5,
-    title: 'RESTful API Gateway',
-    description: 'Microservices API gateway with authentication, rate limiting, and load balancing built with Spring Boot.',
-    category: 'Backend',
-    tags: ['Java', 'Spring Cloud', 'Redis', 'Docker', 'Kubernetes'],
-    progress: 95,
-    image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: '#',
+    title: 'Simple MERN Inventory System',
+    description:
+      'Inventory dashboard with items, suppliers, alerts, and PDF reports using React + TypeScript and a REST API backend.',
+    category: 'Web',
+    tags: ['React', 'TypeScript', 'Node.js', 'SQL'],
+    progress: 85,
+    image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=1200&auto=format&fit=crop',
+    github: 'https://github.com/kiruluchamika/Simple_MERN_Inventory_System',
   },
   {
     id: 6,
-    title: 'Portfolio Website',
-    description: 'Modern, responsive portfolio website with smooth animations and glassmorphism design.',
-    category: 'Frontend',
-    tags: ['React', 'Framer Motion', 'Tailwind CSS', 'TypeScript'],
+    title: 'Online Shopping Store (Servlets)',
+    description:
+      'Simple Java Servlets-based CRUD store with admin and client sides.',
+    category: 'Web',
+    tags: ['Java', 'Servlets', 'JSP', 'MySQL'],
+    progress: 70,
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop',
+    github: 'https://github.com/kiruluchamika/OnlineShoppingStore-simple-java-servlet-project',
+  },
+  {
+    id: 7,
+    title: 'This Portfolio',
+    description:
+      'React + TypeScript + Vite portfolio with dark mode, glassmorphism, and GitHub insights.',
+    category: 'Web',
+    tags: ['React', 'TypeScript', 'Vite', 'Tailwind', 'Framer Motion'],
     progress: 100,
-    image: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=800',
-    demo: '#',
+    image: imgFav,
+    github: 'https://github.com/kiruluchamika/portfolio-Kirulu-Hettige',
+  },
+  // Mobile apps
+  {
+    id: 8,
+    title: 'Golden Grain Go (Mobile)',
+    description:
+      'Prototype Android app for rice & mill shopping flow — UI and navigation only (no backend).',
+    category: 'Mobile',
+    tags: ['Kotlin', 'Android', 'Material 3'],
+    progress: 60,
+    image: imgGgm,
+    github: 'https://github.com/kiruluchamika/Golden_Grain_Go_MobileApp',
+  },
+  {
+    id: 9,
+    title: 'Digi‑Care Habit Tracker',
+    description:
+      'Android wellness app with habit tracking, mood journal, hydration reminders, and smart notifications.',
+    category: 'Mobile',
+    tags: ['Kotlin', 'Android', 'Jetpack', 'WorkManager'],
+    progress: 75,
+    image: imgDigicare,
+    github: 'https://github.com/kiruluchamika/Habbit_Tracker_MobileApp_Kotlin',
   },
 ];
 
-const categories = ['All', 'Full Stack', 'Frontend', 'Backend'];
+const categories: Array<'All' | 'Web' | 'Mobile'> = ['All', 'Web', 'Mobile'];
 
 export default function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [selectedCategory, setSelectedCategory] = useState<'All' | 'Web' | 'Mobile'>('All');
 
   const filteredProjects = selectedCategory === 'All'
     ? projects
