@@ -8,6 +8,7 @@ import About from './pages/About';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import { motion, AnimatePresence } from 'framer-motion';
+import MouseTrail from './components/MouseTrail';
 
 function App() {
   return (
@@ -38,6 +39,9 @@ function App() {
           
           {/* Gradient Mesh Overlay */}
           <div className="fixed inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-transparent via-blue-100/20 to-transparent dark:via-blue-900/10 pointer-events-none" />
+
+          {/* Mouse particle trail (non-interactive overlay) */}
+          <MouseTrail />
           
           {/* Content */}
           <div className="relative z-10">

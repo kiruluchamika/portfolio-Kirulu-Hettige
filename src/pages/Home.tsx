@@ -7,7 +7,6 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import GlassStatCard from '../components/GlassStatCard';
 import GlassCard from '../components/GlassCard';
-import GitHubInsights from '../components/GitHubInsights';
 import GitHubReadmeStats from '../components/GitHubReadmeStats';
 import { Badge } from '../components/ui/badge';
 import { Link } from 'react-router-dom';
@@ -564,11 +563,8 @@ export default function Home() {
             ))}
           </div>
 
-          {/* GitHub Insights directly under Tech Stack */}
+          {/* GitHub Readme-style stats */}
           <div className="mt-12">
-            <GitHubInsights username="kiruluchamika" />
-          </div>
-          <div className="mt-8">
             <GitHubReadmeStats username="kiruluchamika" />
           </div>
         </div>
