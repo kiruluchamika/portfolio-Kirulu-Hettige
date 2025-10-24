@@ -10,6 +10,7 @@ import Contact from './pages/Contact';
 import { motion, AnimatePresence } from 'framer-motion';
 import MouseTrail from './components/MouseTrail';
 import ParallaxScroll from './components/ParallaxScroll';
+import MiniTerminal from './components/MiniTerminal';
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
 
           {/* Parallax smooth scroll effect */}
           <ParallaxScroll />
+          
+          {/* Mini terminal (toggle with floating button) */}
+          <MiniTerminal />
           
           {/* Content */}
           <div className="relative z-10">
