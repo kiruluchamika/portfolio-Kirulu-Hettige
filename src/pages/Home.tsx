@@ -1,5 +1,8 @@
 import { motion } from 'framer-motion';
 import { Mail, Facebook, Instagram, Linkedin, ChevronDown, Code2, Database, Layout, Server, Terminal, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
+import imgCarepro from '../assets/carepro.jpeg';
+import imgRideease from '../assets/rideease.png';
+import imgGgm from '../assets/ggm.png';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import GlassStatCard from '../components/GlassStatCard';
@@ -66,28 +69,31 @@ export default function Home() {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack MERN application with payment integration, real-time inventory, and admin dashboard.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop',
-      github: '#',
-      demo: '#',
+      title: 'Golden Grain Mill',
+      description:
+        'Full‑stack platform for paddy supply and rice sales with role‑based dashboards, Stripe test payments, notifications, and analytics.',
+      tech: ['React', 'TypeScript', 'Spring Boot', 'MySQL'],
+      image: imgGgm,
+      github: 'https://github.com/kiruluchamika/Golden-Grain-Mill-ITP-Project',
+      demo: 'https://github.com/kiruluchamika/Golden-Grain-Mill-ITP-Project',
     },
     {
-      title: 'Task Management System',
-      description: 'Spring Boot REST API with JWT authentication, role-based access control, and microservices architecture.',
-      tech: ['Spring Boot', 'PostgreSQL', 'Docker', 'JWT'],
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop',
-      github: '#',
-      demo: '#',
+      title: 'RideEase — Transport System',
+      description:
+        'Ride‑hailing web app built with Java Servlets/JSP and MySQL; supports Passenger, Driver, and Admin portals with role‑based features.',
+      tech: ['Java', 'JSP/Servlets', 'MySQL', 'Tailwind'],
+      image: imgRideease,
+      github: 'https://github.com/kiruluchamika/RideEase-Transport-System-OOP-Project',
+      demo: 'https://github.com/kiruluchamika/RideEase-Transport-System-OOP-Project',
     },
     {
-      title: 'Real-Time Chat Application',
-      description: 'WebSocket-based messaging app with typing indicators, read receipts, and file sharing capabilities.',
-      tech: ['Socket.io', 'React', 'Express', 'MongoDB'],
-      image: 'https://images.unsplash.com/photo-1611606063065-ee7946f0787a?q=80&w=800&auto=format&fit=crop',
-      github: '#',
-      demo: '#',
+      title: 'CarePro — Health Insurance',
+      description:
+        'Dynamic health insurance management system with auth, plans, claims, and admin dashboards built for SLIIT IWT module.',
+      tech: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
+      image: imgCarepro,
+      github: 'https://github.com/kiruluchamika/SLIIT-IWT-Project-2024',
+      demo: 'https://github.com/kiruluchamika/SLIIT-IWT-Project-2024',
     },
   ];
 
