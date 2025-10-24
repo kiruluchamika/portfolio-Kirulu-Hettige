@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Filter } from 'lucide-react';
 import { useState } from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
+import { CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '../components/ui/card';
+import GlassCard from '../components/GlassCard';
 import { Badge } from '../components/ui/badge';
 import { Button } from '../components/ui/button';
 import { Progress } from '../components/ui/progress';
@@ -144,7 +145,7 @@ export default function Projects() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="group overflow-hidden hover:shadow-xl transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 h-full flex flex-col">
+              <GlassCard className="group overflow-hidden hover:shadow-xl transition-all duration-300 h-full flex flex-col">
                 <div className="relative overflow-hidden h-48">
                   <motion.img
                     src={project.image}
@@ -215,7 +216,7 @@ export default function Projects() {
                     </Button>
                   )}
                 </CardFooter>
-              </Card>
+              </GlassCard>
             </motion.div>
           ))}
         </motion.div>

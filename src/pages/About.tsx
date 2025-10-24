@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Award, Code, Briefcase } from 'lucide-react';
-import { Card, CardContent } from '../components/ui/card';
+import { CardContent } from '../components/ui/card';
+import GlassCard from '../components/GlassCard';
 
 type TimelineItem = {
   year: string;
@@ -71,7 +72,7 @@ export default function About() {
           transition={{ delay: 0.2 }}
           className="mb-16"
         >
-          <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50">
+          <GlassCard>
             <CardContent className="p-8">
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -87,7 +88,7 @@ export default function About() {
                 </p>
               </div>
             </CardContent>
-          </Card>
+          </GlassCard>
         </motion.div>
 
         <motion.div
@@ -107,7 +108,7 @@ export default function About() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
               >
-                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-shadow">
+                <GlassCard className="hover:shadow-lg transition-shadow">
                   <CardContent className="p-6 text-center">
                     <motion.div
                       initial={{ scale: 0 }}
@@ -121,7 +122,7 @@ export default function About() {
                       {metric.label}
                     </div>
                   </CardContent>
-                </Card>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
@@ -157,7 +158,7 @@ export default function About() {
                       <Icon className="w-4 h-4 text-white" />
                     </motion.div>
 
-                    <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-shadow">
+                    <GlassCard className="hover:shadow-xl transition-shadow">
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-2">
                           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -174,7 +175,7 @@ export default function About() {
                           {item.description}
                         </p>
                       </CardContent>
-                    </Card>
+                    </GlassCard>
                   </motion.div>
                 );
               })}
