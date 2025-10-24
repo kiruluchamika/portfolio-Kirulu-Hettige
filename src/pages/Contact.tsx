@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, XCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, XCircle, Linkedin } from 'lucide-react';
 import { useState } from 'react';
 import { Card, CardContent } from '../components/ui/card';
 import GlassCard from '../components/GlassCard';
@@ -48,20 +48,26 @@ export default function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'john.developer@example.com',
-      href: 'mailto:john.developer@example.com',
+      value: 'kiruluchamika2002@gmail.com',
+      href: 'mailto:kiruluchamika2002@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+94 71 209 8485',
+      href: 'tel:+94712098485',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Sri Lanka',
       href: '#',
+    },
+    {
+      icon: Linkedin,
+      label: 'LinkedIn',
+      value: 'kirulu-chamika',
+      href: 'https://www.linkedin.com/in/kirulu-chamika-b9337b33b/',
     },
   ];
 

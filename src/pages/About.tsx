@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, Code, Briefcase } from 'lucide-react';
+import { GraduationCap, Award, Code, Briefcase, CheckCircle2 } from 'lucide-react';
 import { CardContent } from '../components/ui/card';
 import GlassCard from '../components/GlassCard';
 
@@ -76,16 +76,24 @@ export default function About() {
             <CardContent className="p-8">
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  I'm a Software Engineering undergraduate with a passion for creating innovative web applications
-                  that solve real-world problems. With expertise in the MERN stack and Spring Boot, I specialize
-                  in building scalable, efficient, and user-friendly solutions.
+                  I'm <strong>Kirulu Chamika</strong>, an undergraduate <strong>Software Engineering student @ SLIIT</strong> with a passion for
+                  full‑stack development, UI design, and problem solving. I love crafting clean, scalable apps and delightful user experiences.
                 </p>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
-                  My journey in software development has been driven by curiosity and a desire to constantly learn
-                  and improve. I combine technical proficiency with creative problem-solving to deliver exceptional
-                  results. Whether it's crafting elegant user interfaces or architecting robust backend systems,
-                  I approach every project with dedication and attention to detail.
-                </p>
+                <ul className="grid sm:grid-cols-2 gap-2 mt-6 list-none p-0">
+                  {[ 
+                    'Exploring full‑stack development using modern tools & frameworks',
+                    'Currently working with React, Node.js, Spring Boot, and Next.js',
+                    'Skilled in Web + Mobile UI/UX Design',
+                    'Learning & building with Java Servlets, MySQL Workbench, and MongoDB',
+                    'Languages: PHP, HTML, CSS, JavaScript, C, C++, Java',
+                    'Practicing problem solving, DSA, and contributing to Open Source'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                      <CheckCircle2 className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-1" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </CardContent>
           </GlassCard>

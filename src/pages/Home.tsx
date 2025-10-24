@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Facebook, Instagram, ChevronDown, Code2, Database, Layout, Server, Terminal, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
+import { Mail, Facebook, Instagram, Linkedin, ChevronDown, Code2, Database, Layout, Server, Terminal, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import GlassStatCard from '../components/GlassStatCard';
@@ -277,9 +277,10 @@ export default function Home() {
                   className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-4"
                 >
                   {[
-                    { Icon: Github, href: '#', color: 'hover:bg-gray-800' },
-                    { Icon: Instagram, href: '#', color: 'hover:bg-pink-600' },
-                    { Icon: Facebook, href: '#', color: 'hover:bg-blue-600' },
+                    { Icon: Github, href: 'https://github.com/kiruluchamika', color: 'hover:bg-gray-800' },
+                    { Icon: Linkedin, href: 'https://www.linkedin.com/in/kirulu-chamika-b9337b33b/', color: 'hover:bg-blue-700' },
+                    { Icon: Instagram, href: 'https://www.instagram.com/chami_x_mmii/', color: 'hover:bg-pink-600' },
+                    { Icon: Facebook, href: 'https://web.facebook.com/kirulu.chamika', color: 'hover:bg-blue-600' },
                   ].map(({ Icon, href, color }, index) => (
                     <motion.a
                       key={index}
