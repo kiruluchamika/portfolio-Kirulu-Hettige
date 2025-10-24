@@ -107,18 +107,11 @@ export default function Home() {
       description: 'GPA: 3.8/4.0 - Focused on software architecture, algorithms, and full-stack development.',
     },
     {
-      type: 'work',
-      title: 'Software Engineering Intern',
-      organization: 'Tech Company',
-      period: 'Summer 2024',
-      description: 'Developed RESTful APIs and improved application performance by 40% using caching strategies.',
-    },
-    {
-      type: 'work',
-      title: 'Freelance Full-Stack Developer',
-      organization: 'Self-Employed',
-      period: '2023 - Present',
-      description: 'Built custom web applications for clients using MERN stack and Spring Boot.',
+      type: 'education',
+      title: 'Secondary Education',
+      organization: 'St. Servatius College',
+      period: 'Pre‑University',
+      description: 'Completed secondary education with strong focus on mathematics and computing fundamentals.',
     },
   ];
 
@@ -270,7 +263,7 @@ export default function Home() {
                 >
                   {[
                     { Icon: Github, href: 'https://github.com/kiruluchamika', color: 'hover:bg-gray-800' },
-                    { Icon: Linkedin, href: 'https://www.linkedin.com/in/kirulu-chamika-b9337b33b/', color: 'hover:bg-blue-700' },
+                    { Icon: Linkedin, href: 'https://www.linkedin.com/in/kirulu-hettige-b9337b33b/', color: 'hover:bg-blue-700' },
                     { Icon: Instagram, href: 'https://www.instagram.com/chami_x_mmii/', color: 'hover:bg-pink-600' },
                     { Icon: Facebook, href: 'https://web.facebook.com/kirulu.chamika', color: 'hover:bg-blue-600' },
                   ].map(({ Icon, href, color }, index) => (

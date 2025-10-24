@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, Code, Briefcase, CheckCircle2, Download } from 'lucide-react';
+import { GraduationCap, Award, Briefcase, CheckCircle2, Download } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { CardContent } from '../components/ui/card';
 import GlassCard from '../components/GlassCard';
@@ -14,32 +14,25 @@ type TimelineItem = {
 
 const timeline: TimelineItem[] = [
   {
-    year: '2024',
-    title: 'Backend Development Internship',
-    organization: 'Tech Solutions Inc.',
-    description: 'Developed RESTful APIs using Spring Boot and implemented microservices architecture for enterprise applications.',
+    year: 'Present',
+    title: 'Seeking Software Engineering Internship',
+    organization: 'Open to opportunities',
+    description: 'Actively looking for an internship while building real‑world projects and sharpening full‑stack skills.',
     icon: Briefcase,
   },
   {
-    year: '2023',
-    title: 'Full Stack Development Course',
-    organization: 'Online Learning Platform',
-    description: 'Completed comprehensive MERN stack course with hands-on projects and industry-standard best practices.',
-    icon: Award,
-  },
-  {
-    year: '2022',
-    title: 'Web Development Bootcamp',
-    organization: 'Code Academy',
-    description: 'Intensive 12-week program covering modern web technologies, responsive design, and agile methodologies.',
-    icon: Code,
-  },
-  {
-    year: '2021',
-    title: 'Bachelor of Software Engineering',
-    organization: 'University Name',
-    description: 'Started undergraduate studies in Software Engineering with focus on data structures, algorithms, and software design patterns.',
+    year: '2022 – Present',
+    title: 'B.Sc. in Software Engineering',
+    organization: 'Sri Lanka Institute of Information Technology (SLIIT)',
+    description: 'Undergraduate studies focused on software architecture, algorithms, and full‑stack development.',
     icon: GraduationCap,
+  },
+  {
+    year: 'Pre‑University',
+    title: 'Secondary Education',
+    organization: 'St. Servatius College',
+    description: 'Completed secondary education with an emphasis on mathematics and computing fundamentals.',
+    icon: Award,
   },
 ];
 

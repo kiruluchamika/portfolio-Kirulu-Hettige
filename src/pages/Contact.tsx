@@ -66,8 +66,8 @@ export default function Contact() {
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      value: 'kirulu-chamika',
-      href: 'https://www.linkedin.com/in/kirulu-chamika-b9337b33b/',
+      value: 'kirulu-hettige',
+      href: 'https://www.linkedin.com/in/kirulu-hettige-b9337b33b/',
     },
   ];
 
