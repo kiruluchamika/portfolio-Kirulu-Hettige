@@ -3,6 +3,7 @@ import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import logoUrl from '../assets/fav.png';
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -29,9 +30,9 @@ export default function Navbar() {
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
-              className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white font-bold text-xl"
+              className="w-10 h-10 rounded-lg overflow-hidden shadow-sm"
             >
-              P
+              <img src={logoUrl} alt="Logo" className="w-full h-full object-cover" />
             </motion.div>
             <span className="text-xl font-semibold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
               Portfolio
