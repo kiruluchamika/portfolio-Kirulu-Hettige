@@ -176,35 +176,47 @@ export default function Home() {
                 ))}
               </motion.h1>
 
+              {/* Availability badge */}
+              <motion.div
+                variants={itemVariants}
+                transition={{ duration: 0.8, delay: 0.25 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-600/10 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/30 w-fit"
+              >
+                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                Open to Work
+              </motion.div>
+
               <motion.p
                 variants={itemVariants}
                 transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.4 }}
                 className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-xl"
               >
-                Full-Stack Developer specializing in <motion.span
-                  className="text-blue-500 dark:text-blue-400 font-semibold"
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                  }}
-                >MERN Stack</motion.span> and <motion.span
-                  className="text-blue-500 dark:text-blue-400 font-semibold"
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                    delay: 1,
-                  }}
-                >Spring Boot</motion.span>. 
-                Passionate about building scalable applications, clean code, and innovative solutions.
+                I’m a full‑stack developer comfortable across frontend and backend, with a focus on
+                building clear, maintainable code and thoughtful user experiences. I enjoy learning new
+                tools, shipping polished features, and solving real problems with simple, scalable solutions.
               </motion.p>
+
+              {/* Quick contact chips */}
+              <motion.div
+                variants={itemVariants}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="flex flex-wrap items-center gap-3"
+              >
+                <a
+                  href="mailto:kiruluchamika2002@gmail.com"
+                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 text-gray-800 dark:text-gray-100 hover:bg-gray-200/80 dark:hover:bg-white/15 transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  kiruluchamika2002@gmail.com
+                </a>
+                <a
+                  href="tel:+94712098485"
+                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg.white/10 border border-gray-200 dark:border-white/15 text-gray-800 dark:text-gray-100 hover:bg-gray-200/80 dark:hover:bg-white/15 transition-colors"
+                >
+                  <Terminal className="w-4 h-4" />
+                  +94 71 209 8485
+                </a>
+              </motion.div>
 
               <motion.div
                 variants={itemVariants}
@@ -243,6 +255,26 @@ export default function Home() {
                     </Button>
                   </motion.div>
                 </Link>
+
+                <a href="/resume.pdf" download className="inline-block">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+                      asChild
+                    >
+                      <span>
+                        <Download className="w-5 h-5 mr-2" />
+                        Download CV
+                      </span>
+                    </Button>
+                  </motion.div>
+                </a>
               </motion.div>
             </motion.div>
 

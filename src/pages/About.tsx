@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, Code, Briefcase, CheckCircle2 } from 'lucide-react';
+import { GraduationCap, Award, Code, Briefcase, CheckCircle2, Download } from 'lucide-react';
+import { Button } from '../components/ui/button';
 import { CardContent } from '../components/ui/card';
 import GlassCard from '../components/GlassCard';
 
@@ -64,6 +65,17 @@ export default function About() {
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Passionate software engineer dedicated to building elegant solutions that make a difference.
           </p>
+          <div className="mt-6">
+            <a href="/resume.pdf" download>
+              <Button
+                variant="outline"
+                className="border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+              >
+                <Download className="w-5 h-5 mr-2" />
+                Download Resume
+              </Button>
+            </a>
+          </div>
         </motion.div>
 
         <motion.div
