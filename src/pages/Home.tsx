@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion';
 import { Mail, Facebook, Instagram, Linkedin, ChevronDown, Code2, Database, Layout, Server, Terminal, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
+import imgCarepro from '../assets/carepro.jpeg';
+import imgRideease from '../assets/rideease.png';
+import imgGgm from '../assets/ggm.png';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import GlassStatCard from '../components/GlassStatCard';
 import GlassCard from '../components/GlassCard';
-import GitHubInsights from '../components/GitHubInsights';
+import GitHubReadmeStats from '../components/GitHubReadmeStats';
 import { Badge } from '../components/ui/badge';
 import { Link } from 'react-router-dom';
+import Typewriter from '../components/Typewriter';
 
 export default function Home() {
   const containerVariants = {
@@ -66,28 +70,31 @@ export default function Home() {
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Full-stack MERN application with payment integration, real-time inventory, and admin dashboard.',
-      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      image: 'https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=800&auto=format&fit=crop',
-      github: '#',
-      demo: '#',
+      title: 'Golden Grain Mill',
+      description:
+        'Full‑stack platform for paddy supply and rice sales with role‑based dashboards, Stripe test payments, notifications, and analytics.',
+      tech: ['React', 'TypeScript', 'Spring Boot', 'MySQL'],
+      image: imgGgm,
+      github: 'https://github.com/kiruluchamika/Golden-Grain-Mill-ITP-Project',
+      demo: 'https://github.com/kiruluchamika/Golden-Grain-Mill-ITP-Project',
     },
     {
-      title: 'Task Management System',
-      description: 'Spring Boot REST API with JWT authentication, role-based access control, and microservices architecture.',
-      tech: ['Spring Boot', 'PostgreSQL', 'Docker', 'JWT'],
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop',
-      github: '#',
-      demo: '#',
+      title: 'RideEase — Transport System',
+      description:
+        'Ride‑hailing web app built with Java Servlets/JSP and MySQL; supports Passenger, Driver, and Admin portals with role‑based features.',
+      tech: ['Java', 'JSP/Servlets', 'MySQL', 'Tailwind'],
+      image: imgRideease,
+      github: 'https://github.com/kiruluchamika/RideEase-Transport-System-OOP-Project',
+      demo: 'https://github.com/kiruluchamika/RideEase-Transport-System-OOP-Project',
     },
     {
-      title: 'Real-Time Chat Application',
-      description: 'WebSocket-based messaging app with typing indicators, read receipts, and file sharing capabilities.',
-      tech: ['Socket.io', 'React', 'Express', 'MongoDB'],
-      image: 'https://images.unsplash.com/photo-1611606063065-ee7946f0787a?q=80&w=800&auto=format&fit=crop',
-      github: '#',
-      demo: '#',
+      title: 'CarePro — Health Insurance',
+      description:
+        'Dynamic health insurance management system with auth, plans, claims, and admin dashboards built for SLIIT IWT module.',
+      tech: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
+      image: imgCarepro,
+      github: 'https://github.com/kiruluchamika/SLIIT-IWT-Project-2024',
+      demo: 'https://github.com/kiruluchamika/SLIIT-IWT-Project-2024',
     },
   ];
 
@@ -104,7 +111,7 @@ export default function Home() {
       title: 'B.Sc. in Software Engineering',
       organization: 'Sri Lanka Institute of Information Technology (SLIIT)',
       period: '2022 - Present',
-      description: 'GPA: 3.8/4.0 - Focused on software architecture, algorithms, and full-stack development.',
+      description: 'GPA: 3.7/4.0 - Focused on software architecture, algorithms, and full-stack development.',
     },
     {
       type: 'education',
@@ -118,7 +125,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Section 1: Hero Section */}
-      <section className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center" data-speed="0.9">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -185,10 +192,36 @@ export default function Home() {
                 transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.4 }}
                 className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-xl"
               >
-                I’m a full‑stack developer comfortable across frontend and backend, with a focus on
+                I'm a full‑stack developer comfortable across frontend and backend, with a focus on
                 building clear, maintainable code and thoughtful user experiences. I enjoy learning new
                 tools, shipping polished features, and solving real problems with simple, scalable solutions.
               </motion.p>
+
+              {/* Typing Effect */}
+              <motion.div
+                variants={itemVariants}
+                transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.5 }}
+                className="text-xl md:text-2xl font-light text-gray-800 dark:text-gray-200"
+              >
+                <span className="mr-2">I love</span>
+                <Typewriter
+                  words={[
+                    'React & TypeScript',
+                    'Building Full-Stack Apps',
+                    'Clean Architecture',
+                    'Problem Solving',
+                    'Spring Boot & Node.js',
+                    'Creating User Experiences',
+                    'MongoDB & PostgreSQL',
+                    'Learning New Technologies',
+                    'Cloud Solutions',
+                    'Open Source',
+                  ]}
+                  typingSpeed={80}
+                  deletingSpeed={50}
+                  pauseDuration={2000}
+                />
+              </motion.div>
 
               <motion.div
                 variants={itemVariants}
@@ -284,22 +317,11 @@ export default function Home() {
                         transition: { type: "spring", stiffness: 400, damping: 17 },
                       }}
                       whileTap={{ scale: 0.9 }}
-                      className={`p-3 rounded-full bg-gray-200/80 dark:bg-white/10 backdrop-blur-sm border border-gray-300 dark:border-white/20 ${color} transition-all shadow-lg`}
+                      className={`p-3 rounded-full bg-gray-200/80 dark:bg-white/10 backdrop-blur-sm border border-gray-300 dark:border-white/20 ${color} transition-all shadow-lg animate-breathe`}
                       aria-label={`Social ${index}`}
+                      style={{ animationDelay: `${index * 0.5}s` }}
                     >
-                      <motion.div
-                        animate={{
-                          rotate: [0, 5, -5, 0],
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          repeatDelay: 5,
-                          delay: index * 0.5,
-                        }}
-                      >
-                        <Icon className="w-5 h-5 text-gray-700 dark:text-white" />
-                      </motion.div>
+                      <Icon className="w-5 h-5 text-gray-700 dark:text-white" />
                     </motion.a>
                   ))}
                 </motion.div>
@@ -327,7 +349,7 @@ export default function Home() {
       </section>
 
       {/* Section 2: Statistics */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="1.1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
@@ -338,7 +360,7 @@ export default function Home() {
       </section>
 
       {/* Section 3: About Me */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="0.95">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -480,7 +502,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: Tech Stack */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="1.05">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -557,15 +579,15 @@ export default function Home() {
             ))}
           </div>
 
-          {/* GitHub Insights directly under Tech Stack */}
+          {/* GitHub Readme-style stats */}
           <div className="mt-12">
-            <GitHubInsights username="kiruluchamika" />
+            <GitHubReadmeStats username="kiruluchamika" />
           </div>
         </div>
       </section>
 
       {/* Section 5: Featured Projects */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="0.92">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -665,7 +687,7 @@ export default function Home() {
       </section>
 
       {/* Section 6: Experience & Education */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="1.08">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
