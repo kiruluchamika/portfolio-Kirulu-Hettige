@@ -9,6 +9,7 @@ import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 import { motion, AnimatePresence } from 'framer-motion';
 import MouseTrail from './components/MouseTrail';
+import ParallaxScroll from './components/ParallaxScroll';
 
 function App() {
   return (
@@ -42,6 +43,9 @@ function App() {
 
           {/* Mouse particle trail (non-interactive overlay) */}
           <MouseTrail />
+
+          {/* Parallax smooth scroll effect */}
+          <ParallaxScroll />
           
           {/* Content */}
           <div className="relative z-10">

@@ -124,7 +124,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Section 1: Hero Section */}
-      <section className="relative min-h-screen flex items-center">
+      <section className="relative min-h-screen flex items-center" data-speed="0.9">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
@@ -333,7 +333,7 @@ export default function Home() {
       </section>
 
       {/* Section 2: Statistics */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="1.1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
@@ -344,7 +344,7 @@ export default function Home() {
       </section>
 
       {/* Section 3: About Me */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="0.95">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -486,7 +486,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: Tech Stack */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="1.05">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -571,7 +571,7 @@ export default function Home() {
       </section>
 
       {/* Section 5: Featured Projects */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="0.92">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -671,7 +671,7 @@ export default function Home() {
       </section>
 
       {/* Section 6: Experience & Education */}
-      <section className="py-20 relative">
+      <section className="py-20 relative" data-speed="1.08">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
