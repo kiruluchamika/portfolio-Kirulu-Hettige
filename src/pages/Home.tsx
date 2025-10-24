@@ -196,34 +196,12 @@ export default function Home() {
                 tools, shipping polished features, and solving real problems with simple, scalable solutions.
               </motion.p>
 
-              {/* Quick contact chips */}
-              <motion.div
-                variants={itemVariants}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="flex flex-wrap items-center gap-3"
-              >
-                <a
-                  href="mailto:kiruluchamika2002@gmail.com"
-                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 text-gray-800 dark:text-gray-100 hover:bg-gray-200/80 dark:hover:bg-white/15 transition-colors"
-                >
-                  <Mail className="w-4 h-4" />
-                  kiruluchamika2002@gmail.com
-                </a>
-                <a
-                  href="tel:+94712098485"
-                  className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg.white/10 border border-gray-200 dark:border-white/15 text-gray-800 dark:text-gray-100 hover:bg-gray-200/80 dark:hover:bg-white/15 transition-colors"
-                >
-                  <Terminal className="w-4 h-4" />
-                  +94 71 209 8485
-                </a>
-              </motion.div>
-
               <motion.div
                 variants={itemVariants}
                 transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.6 }}
                 className="flex flex-wrap gap-4 pt-4"
               >
-                <Link to="/projects">
+                <a href="/resume.pdf" download>
                   <motion.div
                     whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(59, 130, 246, 0.4)" }}
                     whileTap={{ scale: 0.95 }}
@@ -233,11 +211,11 @@ export default function Home() {
                       size="lg"
                       className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-base font-semibold rounded-full shadow-lg shadow-blue-600/50 transition-all"
                     >
-                      <Code2 className="w-5 h-5 mr-2" />
-                      View Projects
+                      <Download className="w-5 h-5 mr-2" />
+                      Download CV
                     </Button>
                   </motion.div>
-                </Link>
+                </a>
 
                 <Link to="/contact">
                   <motion.div
@@ -256,25 +234,6 @@ export default function Home() {
                   </motion.div>
                 </Link>
 
-                <a href="/resume.pdf" download className="inline-block">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  >
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
-                      asChild
-                    >
-                      <span>
-                        <Download className="w-5 h-5 mr-2" />
-                        Download CV
-                      </span>
-                    </Button>
-                  </motion.div>
-                </a>
               </motion.div>
             </motion.div>
 
