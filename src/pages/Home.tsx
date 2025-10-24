@@ -746,46 +746,57 @@ export default function Home() {
       </section>
 
       {/* Section 7: Call to Action */}
-      <section className="py-20 relative">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 relative" data-speed="1.02">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 border-0 text-white">
-              <CardContent className="pt-12 pb-12 text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                  Let's Build Something Amazing
-                </h2>
-                <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-                  I'm always open to discussing new projects, creative ideas, or opportunities 
-                  to be part of your vision.
-                </p>
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <Link to="/contact">
+            <div className="relative">
+              {/* soft glow ring */}
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-blue-400/30 via-cyan-400/20 to-indigo-400/30 blur-2xl" aria-hidden />
+              <Card className="relative rounded-3xl overflow-hidden ring-1 ring-white/15 dark:ring-white/10 bg-gradient-to-br from-blue-500 to-blue-600 dark:from-blue-600 dark:to-blue-700 text-white shadow-2xl">
+                <CardContent className="pt-12 pb-12 text-center">
+                  <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-3">
+                    Let's Build Something Amazing
+                  </h2>
+                  <p className="text-base md:text-lg text-white/90 mb-9 max-w-2xl mx-auto">
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                  </p>
+
+                  <div className="flex flex-wrap gap-4 justify-center">
+                    {/* Get In Touch - light pill */}
+                    <Link to="/contact">
+                      <Button
+                        size="lg"
+                        className="group relative rounded-full bg-white/95 text-blue-700 hover:bg-white px-7 sm:px-8 py-6 text-base font-semibold shadow-lg ring-1 ring-blue-300 hover:shadow-blue-500/20 transition-all"
+                      >
+                        <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-blue-600 text-white group-hover:bg-blue-700 transition-colors">
+                          <Mail className="w-3.5 h-3.5" />
+                        </span>
+                        Get In Touch
+                      </Button>
+                    </Link>
+
+                    {/* Download resume - dark pill with blue outline */}
                     <Button
                       size="lg"
-                      className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-6 text-base font-semibold rounded-full"
+                      variant="ghost"
+                      className="rounded-full bg-black/80 text-white hover:bg-black/85 px-7 sm:px-8 py-6 text-base font-semibold shadow-xl ring-1 ring-blue-300/70 hover:ring-blue-200 transition-all"
+                      asChild
                     >
-                      <Mail className="w-5 h-5 mr-2" />
-                      Get In Touch
+                      <a href="/resume.pdf" download>
+                        <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/30">
+                          <Download className="w-3.5 h-3.5" />
+                        </span>
+                        Download Resume
+                      </a>
                     </Button>
-                  </Link>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-base font-semibold rounded-full"
-                    asChild
-                  >
-                    <a href="#" download>
-                      <Download className="w-5 h-5 mr-2" />
-                      Download Resume
-                    </a>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </motion.div>
         </div>
       </section>
