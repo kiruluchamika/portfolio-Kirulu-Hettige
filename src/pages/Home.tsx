@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
-import { Mail, Facebook, Instagram, ChevronDown, Code2, Database, Layout, Server, Terminal, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
+import { Mail, Facebook, Instagram, Linkedin, ChevronDown, Code2, Database, Layout, Server, Terminal, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import GlassStatCard from '../components/GlassStatCard';
+import GlassCard from '../components/GlassCard';
+import GitHubInsights from '../components/GitHubInsights';
 import { Badge } from '../components/ui/badge';
 import { Link } from 'react-router-dom';
 
@@ -104,18 +107,11 @@ export default function Home() {
       description: 'GPA: 3.8/4.0 - Focused on software architecture, algorithms, and full-stack development.',
     },
     {
-      type: 'work',
-      title: 'Software Engineering Intern',
-      organization: 'Tech Company',
-      period: 'Summer 2024',
-      description: 'Developed RESTful APIs and improved application performance by 40% using caching strategies.',
-    },
-    {
-      type: 'work',
-      title: 'Freelance Full-Stack Developer',
-      organization: 'Self-Employed',
-      period: '2023 - Present',
-      description: 'Built custom web applications for clients using MERN stack and Spring Boot.',
+      type: 'education',
+      title: 'Secondary Education',
+      organization: 'St. Servatius College',
+      period: 'Pre‑University',
+      description: 'Completed secondary education with strong focus on mathematics and computing fundamentals.',
     },
   ];
 
@@ -174,34 +170,24 @@ export default function Home() {
                 ))}
               </motion.h1>
 
+              {/* Availability badge */}
+              <motion.div
+                variants={itemVariants}
+                transition={{ duration: 0.8, delay: 0.25 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-600/10 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/30 w-fit"
+              >
+                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                Open to Work
+              </motion.div>
+
               <motion.p
                 variants={itemVariants}
                 transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.4 }}
                 className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-xl"
               >
-                Full-Stack Developer specializing in <motion.span
-                  className="text-blue-500 dark:text-blue-400 font-semibold"
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                  }}
-                >MERN Stack</motion.span> and <motion.span
-                  className="text-blue-500 dark:text-blue-400 font-semibold"
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    repeatDelay: 3,
-                    delay: 1,
-                  }}
-                >Spring Boot</motion.span>. 
-                Passionate about building scalable applications, clean code, and innovative solutions.
+                I’m a full‑stack developer comfortable across frontend and backend, with a focus on
+                building clear, maintainable code and thoughtful user experiences. I enjoy learning new
+                tools, shipping polished features, and solving real problems with simple, scalable solutions.
               </motion.p>
 
               <motion.div
@@ -209,7 +195,7 @@ export default function Home() {
                 transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.6 }}
                 className="flex flex-wrap gap-4 pt-4"
               >
-                <Link to="/projects">
+                <a href="/resume.pdf" download>
                   <motion.div
                     whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(59, 130, 246, 0.4)" }}
                     whileTap={{ scale: 0.95 }}
@@ -219,11 +205,11 @@ export default function Home() {
                       size="lg"
                       className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-base font-semibold rounded-full shadow-lg shadow-blue-600/50 transition-all"
                     >
-                      <Code2 className="w-5 h-5 mr-2" />
-                      View Projects
+                      <Download className="w-5 h-5 mr-2" />
+                      Download CV
                     </Button>
                   </motion.div>
-                </Link>
+                </a>
 
                 <Link to="/contact">
                   <motion.div
@@ -241,6 +227,7 @@ export default function Home() {
                     </Button>
                   </motion.div>
                 </Link>
+
               </motion.div>
             </motion.div>
 
@@ -275,9 +262,10 @@ export default function Home() {
                   className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-4"
                 >
                   {[
-                    { Icon: Github, href: '#', color: 'hover:bg-gray-800' },
-                    { Icon: Instagram, href: '#', color: 'hover:bg-pink-600' },
-                    { Icon: Facebook, href: '#', color: 'hover:bg-blue-600' },
+                    { Icon: Github, href: 'https://github.com/kiruluchamika', color: 'hover:bg-gray-800' },
+                    { Icon: Linkedin, href: 'https://www.linkedin.com/in/kirulu-hettige-b9337b33b/', color: 'hover:bg-blue-700' },
+                    { Icon: Instagram, href: 'https://www.instagram.com/chami_x_mmii/', color: 'hover:bg-pink-600' },
+                    { Icon: Facebook, href: 'https://web.facebook.com/kirulu.chamika', color: 'hover:bg-blue-600' },
                   ].map(({ Icon, href, color }, index) => (
                     <motion.a
                       key={index}
@@ -343,44 +331,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center"
-              >
-                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow">
-                  <CardContent className="pt-6">
-                    <motion.div
-                      animate={{
-                        rotate: [0, 10, -10, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        repeatDelay: 3,
-                      }}
-                    >
-                      <stat.icon className="w-8 h-8 mx-auto mb-3 text-blue-500 dark:text-blue-400" />
-                    </motion.div>
-                    <motion.p
-                      className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ type: "spring", bounce: 0.5, delay: index * 0.1 + 0.3 }}
-                      viewport={{ once: true }}
-                    >
-                      {stat.value}
-                    </motion.p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {stat.label}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <GlassStatCard key={index} icon={stat.icon} value={stat.value} label={stat.label} />
             ))}
           </div>
         </div>
@@ -411,7 +362,7 @@ export default function Home() {
               whileHover={{ scale: 1.02, x: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 h-full hover:shadow-2xl transition-shadow">
+              <GlassCard className="h-full">
                 <CardHeader>
                   <CardTitle className="text-2xl text-gray-900 dark:text-white">
                     Technical Background
@@ -432,7 +383,7 @@ export default function Home() {
                     technologies in the software development ecosystem.
                   </p>
                 </CardContent>
-              </Card>
+              </GlassCard>
             </motion.div>
 
             <motion.div
@@ -442,7 +393,7 @@ export default function Home() {
               whileHover={{ scale: 1.02, x: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 h-full hover:shadow-2xl transition-shadow">
+              <GlassCard className="h-full">
                 <CardHeader>
                   <CardTitle className="text-2xl text-gray-900 dark:text-white">
                     What I Do
@@ -522,7 +473,7 @@ export default function Home() {
                     </div>
                   </motion.div>
                 </CardContent>
-              </Card>
+              </GlassCard>
             </motion.div>
           </div>
         </div>
@@ -554,7 +505,7 @@ export default function Home() {
                 transition={{ delay: categoryIndex * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow">
+                <GlassCard className="hover:shadow-2xl transition-shadow">
                   <CardHeader>
                     <CardTitle className="text-xl text-gray-900 dark:text-white capitalize">
                       {category}
@@ -601,9 +552,14 @@ export default function Home() {
                       </motion.div>
                     ))}
                   </CardContent>
-                </Card>
+                </GlassCard>
               </motion.div>
             ))}
+          </div>
+
+          {/* GitHub Insights directly under Tech Stack */}
+          <div className="mt-12">
+            <GitHubInsights username="kiruluchamika" />
           </div>
         </div>
       </section>
@@ -635,7 +591,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 whileHover={{ y: -10, scale: 1.02 }}
               >
-                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 overflow-hidden h-full hover:shadow-2xl transition-all group">
+                <GlassCard className="overflow-hidden h-full hover:shadow-2xl transition-all group">
                   {/* Project Image */}
                   <motion.div
                     className="relative h-48 overflow-hidden"
@@ -683,7 +639,7 @@ export default function Home() {
                       </a>
                     </div>
                   </CardContent>
-                </Card>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
@@ -737,7 +693,7 @@ export default function Home() {
                   className="relative pl-8 border-l-2 border-blue-500 dark:border-blue-400"
                 >
                   <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-500 dark:bg-blue-400 border-2 border-white dark:border-gray-900" />
-                  <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700">
+                  <GlassCard>
                     <CardHeader>
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
@@ -759,7 +715,7 @@ export default function Home() {
                     <CardContent>
                       <p className="text-gray-700 dark:text-gray-300">{item.description}</p>
                     </CardContent>
-                  </Card>
+                  </GlassCard>
                 </motion.div>
               ))}
             </div>

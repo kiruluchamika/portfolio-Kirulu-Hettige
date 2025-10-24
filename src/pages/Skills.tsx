@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
+import GlassCard from '../components/GlassCard';
 import { Progress } from '../components/ui/progress';
 
 type Skill = {
@@ -68,7 +69,7 @@ export default function Skills() {
                     transition={{ delay: categoryIndex * 0.1 + index * 0.05 }}
                     whileHover={{ scale: 1.02 }}
                   >
-                    <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all">
+                    <GlassCard className="hover:shadow-lg transition-all">
                       <CardHeader className="pb-3">
                         <CardTitle className="flex items-center justify-between">
                           <div className="flex items-center gap-3">
@@ -92,7 +93,7 @@ export default function Skills() {
                           className="h-3"
                         />
                       </CardContent>
-                    </Card>
+                    </GlassCard>
                   </motion.div>
                 ))}
               </div>

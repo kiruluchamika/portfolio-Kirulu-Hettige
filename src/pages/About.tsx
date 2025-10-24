@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, Code, Briefcase } from 'lucide-react';
-import { Card, CardContent } from '../components/ui/card';
+import { GraduationCap, Award, Briefcase, CheckCircle2, Download } from 'lucide-react';
+import { Button } from '../components/ui/button';
+import { CardContent } from '../components/ui/card';
+import GlassCard from '../components/GlassCard';
 
 type TimelineItem = {
   year: string;
@@ -12,32 +14,25 @@ type TimelineItem = {
 
 const timeline: TimelineItem[] = [
   {
-    year: '2024',
-    title: 'Backend Development Internship',
-    organization: 'Tech Solutions Inc.',
-    description: 'Developed RESTful APIs using Spring Boot and implemented microservices architecture for enterprise applications.',
+    year: 'Present',
+    title: 'Seeking Software Engineering Internship',
+    organization: 'Open to opportunities',
+    description: 'Actively looking for an internship while building real‑world projects and sharpening full‑stack skills.',
     icon: Briefcase,
   },
   {
-    year: '2023',
-    title: 'Full Stack Development Course',
-    organization: 'Online Learning Platform',
-    description: 'Completed comprehensive MERN stack course with hands-on projects and industry-standard best practices.',
-    icon: Award,
-  },
-  {
-    year: '2022',
-    title: 'Web Development Bootcamp',
-    organization: 'Code Academy',
-    description: 'Intensive 12-week program covering modern web technologies, responsive design, and agile methodologies.',
-    icon: Code,
-  },
-  {
-    year: '2021',
-    title: 'Bachelor of Software Engineering',
-    organization: 'University Name',
-    description: 'Started undergraduate studies in Software Engineering with focus on data structures, algorithms, and software design patterns.',
+    year: '2022 – Present',
+    title: 'B.Sc. in Software Engineering',
+    organization: 'Sri Lanka Institute of Information Technology (SLIIT)',
+    description: 'Undergraduate studies focused on software architecture, algorithms, and full‑stack development.',
     icon: GraduationCap,
+  },
+  {
+    year: 'Pre‑University',
+    title: 'Secondary Education',
+    organization: 'St. Servatius College',
+    description: 'Completed secondary education with an emphasis on mathematics and computing fundamentals.',
+    icon: Award,
   },
 ];
 
@@ -63,6 +58,17 @@ export default function About() {
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Passionate software engineer dedicated to building elegant solutions that make a difference.
           </p>
+          <div className="mt-6">
+            <a href="/resume.pdf" download>
+              <Button
+                variant="outline"
+                className="border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+              >
+                <Download className="w-5 h-5 mr-2" />
+                Download Resume
+              </Button>
+            </a>
+          </div>
         </motion.div>
 
         <motion.div
@@ -71,23 +77,31 @@ export default function About() {
           transition={{ delay: 0.2 }}
           className="mb-16"
         >
-          <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50">
+          <GlassCard>
             <CardContent className="p-8">
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  I'm a Software Engineering undergraduate with a passion for creating innovative web applications
-                  that solve real-world problems. With expertise in the MERN stack and Spring Boot, I specialize
-                  in building scalable, efficient, and user-friendly solutions.
+                  I'm <strong>Kirulu Chamika</strong>, an undergraduate <strong>Software Engineering student @ SLIIT</strong> with a passion for
+                  full‑stack development, UI design, and problem solving. I love crafting clean, scalable apps and delightful user experiences.
                 </p>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
-                  My journey in software development has been driven by curiosity and a desire to constantly learn
-                  and improve. I combine technical proficiency with creative problem-solving to deliver exceptional
-                  results. Whether it's crafting elegant user interfaces or architecting robust backend systems,
-                  I approach every project with dedication and attention to detail.
-                </p>
+                <ul className="grid sm:grid-cols-2 gap-2 mt-6 list-none p-0">
+                  {[ 
+                    'Exploring full‑stack development using modern tools & frameworks',
+                    'Currently working with React, Node.js, Spring Boot, and Next.js',
+                    'Skilled in Web + Mobile UI/UX Design',
+                    'Learning & building with Java Servlets, MySQL Workbench, and MongoDB',
+                    'Languages: PHP, HTML, CSS, JavaScript, C, C++, Java',
+                    'Practicing problem solving, DSA, and contributing to Open Source'
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                      <CheckCircle2 className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-1" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </CardContent>
-          </Card>
+          </GlassCard>
         </motion.div>
 
         <motion.div
@@ -107,7 +121,7 @@ export default function About() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.4 + index * 0.1 }}
               >
-                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-shadow">
+                <GlassCard className="hover:shadow-lg transition-shadow">
                   <CardContent className="p-6 text-center">
                     <motion.div
                       initial={{ scale: 0 }}
@@ -121,7 +135,7 @@ export default function About() {
                       {metric.label}
                     </div>
                   </CardContent>
-                </Card>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
@@ -157,7 +171,7 @@ export default function About() {
                       <Icon className="w-4 h-4 text-white" />
                     </motion.div>
 
-                    <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 hover:shadow-xl transition-shadow">
+                    <GlassCard className="hover:shadow-xl transition-shadow">
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-2">
                           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
@@ -174,7 +188,7 @@ export default function About() {
                           {item.description}
                         </p>
                       </CardContent>
-                    </Card>
+                    </GlassCard>
                   </motion.div>
                 );
               })}

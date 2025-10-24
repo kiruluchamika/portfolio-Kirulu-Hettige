@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, XCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, XCircle, Linkedin } from 'lucide-react';
 import { useState } from 'react';
 import { Card, CardContent } from '../components/ui/card';
+import GlassCard from '../components/GlassCard';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import { Button } from '../components/ui/button';
@@ -47,20 +48,26 @@ export default function Contact() {
     {
       icon: Mail,
       label: 'Email',
-      value: 'john.developer@example.com',
-      href: 'mailto:john.developer@example.com',
+      value: 'kiruluchamika2002@gmail.com',
+      href: 'mailto:kiruluchamika2002@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+94 71 209 8485',
+      href: 'tel:+94712098485',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Sri Lanka',
       href: '#',
+    },
+    {
+      icon: Linkedin,
+      label: 'LinkedIn',
+      value: 'kirulu-hettige',
+      href: 'https://www.linkedin.com/in/kirulu-hettige-b9337b33b/',
     },
   ];
 
@@ -99,7 +106,7 @@ export default function Contact() {
                   whileHover={{ scale: 1.05, x: 10 }}
                   className="block"
                 >
-                  <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50 hover:shadow-lg transition-all">
+                  <GlassCard className="hover:shadow-lg transition-all">
                     <CardContent className="p-6 flex items-center gap-4">
                       <div className="p-3 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 text-white">
                         <Icon className="w-6 h-6" />
@@ -113,7 +120,7 @@ export default function Contact() {
                         </p>
                       </div>
                     </CardContent>
-                  </Card>
+                  </GlassCard>
                 </motion.a>
               );
             })}
@@ -141,7 +148,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="lg:col-span-2"
           >
-            <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200/50 dark:border-gray-700/50">
+            <GlassCard>
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -248,7 +255,7 @@ export default function Contact() {
                   </motion.div>
                 </form>
               </CardContent>
-            </Card>
+            </GlassCard>
           </motion.div>
         </div>
       </div>
