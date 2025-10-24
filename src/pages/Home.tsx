@@ -10,6 +10,7 @@ import GlassCard from '../components/GlassCard';
 import GitHubReadmeStats from '../components/GitHubReadmeStats';
 import { Badge } from '../components/ui/badge';
 import { Link } from 'react-router-dom';
+import Typewriter from '../components/Typewriter';
 
 export default function Home() {
   const containerVariants = {
@@ -191,10 +192,36 @@ export default function Home() {
                 transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.4 }}
                 className="text-gray-700 dark:text-gray-300 text-base md:text-lg leading-relaxed max-w-xl"
               >
-                I’m a full‑stack developer comfortable across frontend and backend, with a focus on
+                I'm a full‑stack developer comfortable across frontend and backend, with a focus on
                 building clear, maintainable code and thoughtful user experiences. I enjoy learning new
                 tools, shipping polished features, and solving real problems with simple, scalable solutions.
               </motion.p>
+
+              {/* Typing Effect */}
+              <motion.div
+                variants={itemVariants}
+                transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.5 }}
+                className="text-xl md:text-2xl font-light text-gray-800 dark:text-gray-200"
+              >
+                <span className="mr-2">I love</span>
+                <Typewriter
+                  words={[
+                    'React & TypeScript',
+                    'Building Full-Stack Apps',
+                    'Clean Architecture',
+                    'Problem Solving',
+                    'Spring Boot & Node.js',
+                    'Creating User Experiences',
+                    'MongoDB & PostgreSQL',
+                    'Learning New Technologies',
+                    'Cloud Solutions',
+                    'Open Source',
+                  ]}
+                  typingSpeed={80}
+                  deletingSpeed={50}
+                  pauseDuration={2000}
+                />
+              </motion.div>
 
               <motion.div
                 variants={itemVariants}
@@ -290,22 +317,11 @@ export default function Home() {
                         transition: { type: "spring", stiffness: 400, damping: 17 },
                       }}
                       whileTap={{ scale: 0.9 }}
-                      className={`p-3 rounded-full bg-gray-200/80 dark:bg-white/10 backdrop-blur-sm border border-gray-300 dark:border-white/20 ${color} transition-all shadow-lg`}
+                      className={`p-3 rounded-full bg-gray-200/80 dark:bg-white/10 backdrop-blur-sm border border-gray-300 dark:border-white/20 ${color} transition-all shadow-lg animate-breathe`}
                       aria-label={`Social ${index}`}
+                      style={{ animationDelay: `${index * 0.5}s` }}
                     >
-                      <motion.div
-                        animate={{
-                          rotate: [0, 5, -5, 0],
-                        }}
-                        transition={{
-                          duration: 4,
-                          repeat: Infinity,
-                          repeatDelay: 5,
-                          delay: index * 0.5,
-                        }}
-                      >
-                        <Icon className="w-5 h-5 text-gray-700 dark:text-white" />
-                      </motion.div>
+                      <Icon className="w-5 h-5 text-gray-700 dark:text-white" />
                     </motion.a>
                   ))}
                 </motion.div>
