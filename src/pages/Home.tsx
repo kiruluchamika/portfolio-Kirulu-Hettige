@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Mail, Facebook, Instagram, ChevronDown, Code2, Database, Layout, Server, Terminal, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import GlassStatCard from '../components/GlassStatCard';
+import GlassCard from '../components/GlassCard';
 import { Badge } from '../components/ui/badge';
 import { Link } from 'react-router-dom';
 
@@ -343,44 +345,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center"
-              >
-                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow">
-                  <CardContent className="pt-6">
-                    <motion.div
-                      animate={{
-                        rotate: [0, 10, -10, 0],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        repeatDelay: 3,
-                      }}
-                    >
-                      <stat.icon className="w-8 h-8 mx-auto mb-3 text-blue-500 dark:text-blue-400" />
-                    </motion.div>
-                    <motion.p
-                      className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2"
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ type: "spring", bounce: 0.5, delay: index * 0.1 + 0.3 }}
-                      viewport={{ once: true }}
-                    >
-                      {stat.value}
-                    </motion.p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {stat.label}
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
+              <GlassStatCard key={index} icon={stat.icon} value={stat.value} label={stat.label} />
             ))}
           </div>
         </div>
@@ -411,7 +376,7 @@ export default function Home() {
               whileHover={{ scale: 1.02, x: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 h-full hover:shadow-2xl transition-shadow">
+              <GlassCard className="h-full">
                 <CardHeader>
                   <CardTitle className="text-2xl text-gray-900 dark:text-white">
                     Technical Background
@@ -432,7 +397,7 @@ export default function Home() {
                     technologies in the software development ecosystem.
                   </p>
                 </CardContent>
-              </Card>
+              </GlassCard>
             </motion.div>
 
             <motion.div
@@ -442,7 +407,7 @@ export default function Home() {
               whileHover={{ scale: 1.02, x: -5 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 h-full hover:shadow-2xl transition-shadow">
+              <GlassCard className="h-full">
                 <CardHeader>
                   <CardTitle className="text-2xl text-gray-900 dark:text-white">
                     What I Do
@@ -522,7 +487,7 @@ export default function Home() {
                     </div>
                   </motion.div>
                 </CardContent>
-              </Card>
+              </GlassCard>
             </motion.div>
           </div>
         </div>
@@ -554,7 +519,7 @@ export default function Home() {
                 transition={{ delay: categoryIndex * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow">
+                <GlassCard className="hover:shadow-2xl transition-shadow">
                   <CardHeader>
                     <CardTitle className="text-xl text-gray-900 dark:text-white capitalize">
                       {category}
@@ -601,7 +566,7 @@ export default function Home() {
                       </motion.div>
                     ))}
                   </CardContent>
-                </Card>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
@@ -635,7 +600,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 whileHover={{ y: -10, scale: 1.02 }}
               >
-                <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700 overflow-hidden h-full hover:shadow-2xl transition-all group">
+                <GlassCard className="overflow-hidden h-full hover:shadow-2xl transition-all group">
                   {/* Project Image */}
                   <motion.div
                     className="relative h-48 overflow-hidden"
@@ -683,7 +648,7 @@ export default function Home() {
                       </a>
                     </div>
                   </CardContent>
-                </Card>
+                </GlassCard>
               </motion.div>
             ))}
           </div>
@@ -737,7 +702,7 @@ export default function Home() {
                   className="relative pl-8 border-l-2 border-blue-500 dark:border-blue-400"
                 >
                   <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-500 dark:bg-blue-400 border-2 border-white dark:border-gray-900" />
-                  <Card className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-gray-200 dark:border-gray-700">
+                  <GlassCard>
                     <CardHeader>
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex-1">
@@ -759,7 +724,7 @@ export default function Home() {
                     <CardContent>
                       <p className="text-gray-700 dark:text-gray-300">{item.description}</p>
                     </CardContent>
-                  </Card>
+                  </GlassCard>
                 </motion.div>
               ))}
             </div>
