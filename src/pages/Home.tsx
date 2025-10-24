@@ -674,9 +674,9 @@ export default function Home() {
           >
             <Link to="/projects">
               <Button
-                variant="outline"
+                variant="ghost"
                 size="lg"
-                className="border-2 border-blue-500 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+                className="liquid-glass liquid-glass-hover rounded-xl px-8 py-6 text-blue-700 dark:text-blue-300 ring-1 ring-blue-400/50 hover:ring-blue-300/70 hover:text-blue-400 shadow-[0_10px_30px_rgba(59,130,246,0.15)] hover:shadow-[0_18px_50px_rgba(59,130,246,0.25)] transition-all"
               >
                 View All Projects
                 <ExternalLink className="w-4 h-4 ml-2" />
