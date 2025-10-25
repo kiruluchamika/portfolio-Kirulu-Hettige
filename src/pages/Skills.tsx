@@ -1,33 +1,70 @@
 import { motion } from 'framer-motion';
+import { useEffect, useMemo, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import GlassCard from '../components/GlassCard';
-import { Progress } from '../components/ui/progress';
 
-type Skill = {
+type Repo = {
   name: string;
-  level: number;
-  category: string;
-  icon: string;
+  stargazers_count: number;
+  language: string | null;
+  fork: boolean;
 };
 
-const skills: Skill[] = [
-  { name: 'React', level: 95, category: 'Frontend', icon: '⚛️' },
-  { name: 'TypeScript', level: 90, category: 'Frontend', icon: '📘' },
-  { name: 'Tailwind CSS', level: 92, category: 'Frontend', icon: '🎨' },
-  { name: 'Node.js', level: 88, category: 'Backend', icon: '🟢' },
-  { name: 'Express', level: 87, category: 'Backend', icon: '🚂' },
-  { name: 'MongoDB', level: 85, category: 'Database', icon: '🍃' },
-  { name: 'Java', level: 90, category: 'Backend', icon: '☕' },
-  { name: 'Spring Boot', level: 88, category: 'Backend', icon: '🍀' },
-  { name: 'PostgreSQL', level: 82, category: 'Database', icon: '🐘' },
-  { name: 'Git', level: 93, category: 'Tools', icon: '📦' },
-  { name: 'Docker', level: 80, category: 'Tools', icon: '🐳' },
-  { name: 'Figma', level: 85, category: 'Design', icon: '🎭' },
-];
-
-const categories = ['Frontend', 'Backend', 'Database', 'Tools', 'Design'];
+type User = {
+  public_repos: number;
+  followers: number;
+  following: number;
+};
 
 export default function Skills() {
+  const username = 'kiruluchamika';
+  const [user, setUser] = useState<User | null>(null);
+  const [repos, setRepos] = useState<Repo[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        setLoading(true);
+        const [uRes, rRes] = await Promise.all([
+          fetch(`https://api.github.com/users/${username}`),
+          fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`),
+        ]);
+        if (!uRes.ok || !rRes.ok) throw new Error('GitHub API rate limited or unavailable');
+        const u: User = await uRes.json();
+        const r: Repo[] = await rRes.json();
+        if (!cancelled) {
+          setUser(u);
+          setRepos(r);
+        }
+      } catch (e: any) {
+        if (!cancelled) setError(e?.message ?? 'Failed to fetch GitHub data');
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const totals = useMemo(() => {
+    const totalStars = repos.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+    const langCounts = new Map<string, number>();
+    repos.forEach((r) => {
+      const lang = r.language ?? 'Other';
+      langCounts.set(lang, (langCounts.get(lang) || 0) + 1);
+    });
+    const topLanguages = Array.from(langCounts.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 6);
+    const nonForkRepos = repos.filter((r) => !r.fork).length;
+    return { totalStars, topLanguages, nonForkRepos };
+  }, [repos]);
+
   return (
     <div className="min-h-screen pt-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-cyan-50/30 dark:from-gray-900 dark:via-gray-900 dark:to-blue-950/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -44,62 +81,137 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        {categories.map((category, categoryIndex) => {
-          const categorySkills = skills.filter(skill => skill.category === category);
+        {/* Skills from skillicons.dev (real stack) */}
+        <div className="space-y-10">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white flex items-center">
+              <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-cyan-600 mr-4 rounded-full" />
+              Languages
+            </h2>
+            <GlassCard className="relative overflow-hidden rounded-2xl liquid-glass liquid-glass-hover">
+              <CardContent className="p-6 flex justify-center">
+                <motion.div
+                  className="animate-breathe"
+                  animate={{ scale: [1, 1.03, 1], filter: ["brightness(1)", "brightness(1.08)", "brightness(1)"] }}
+                  transition={{ duration: 7, repeat: Infinity }}
+                >
+                  <img
+                    src="https://skillicons.dev/icons?i=c,cpp,java,php,js,ts,html,css&perline=16"
+                    alt="Languages"
+                    className="max-w-full h-auto drop-shadow-[0_4px_24px_rgba(59,130,246,0.25)]"
+                  />
+                </motion.div>
+              </CardContent>
+              <div className="pointer-events-none absolute -inset-px rounded-2xl ring-1 ring-white/10" />
+            </GlassCard>
+          </motion.div>
 
-          return (
-            <motion.div
-              key={category}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: categoryIndex * 0.1 }}
-              className="mb-12"
-            >
-              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
-                <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-cyan-600 mr-4 rounded-full" />
-                {category}
-              </h2>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white flex items-center">
+              <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-cyan-600 mr-4 rounded-full" />
+              Frontend / UI
+            </h2>
+            <GlassCard className="relative overflow-hidden rounded-2xl liquid-glass liquid-glass-hover">
+              <CardContent className="p-6 flex justify-center">
+                <motion.div
+                  className="animate-breathe"
+                  animate={{ scale: [1, 1.04, 1], y: [0, -2, 0] }}
+                  transition={{ duration: 6.5, repeat: Infinity, delay: 0.5 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <img
+                    src="https://skillicons.dev/icons?i=react,nextjs,tailwind,figma,vite&perline=16"
+                    alt="Frontend"
+                    className="max-w-full h-auto drop-shadow-[0_6px_28px_rgba(99,102,241,0.25)]"
+                  />
+                </motion.div>
+              </CardContent>
+              <div className="pointer-events-none absolute -inset-px rounded-2xl ring-1 ring-white/10" />
+            </GlassCard>
+          </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {categorySkills.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: categoryIndex * 0.1 + index * 0.05 }}
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <GlassCard className="hover:shadow-lg transition-all">
-                      <CardHeader className="pb-3">
-                        <CardTitle className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <motion.span
-                              className="text-3xl"
-                              whileHover={{ rotate: 360, scale: 1.2 }}
-                              transition={{ duration: 0.5 }}
-                            >
-                              {skill.icon}
-                            </motion.span>
-                            <span className="text-lg">{skill.name}</span>
-                          </div>
-                          <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
-                            {skill.level}%
-                          </span>
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <Progress
-                          value={skill.level}
-                          className="h-3"
-                        />
-                      </CardContent>
-                    </GlassCard>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-          );
-        })}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white flex items-center">
+              <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-cyan-600 mr-4 rounded-full" />
+              Backend / DevOps
+            </h2>
+            <GlassCard className="relative overflow-hidden rounded-2xl liquid-glass liquid-glass-hover">
+              <CardContent className="p-6 flex justify-center">
+                <motion.div
+                  className="animate-breathe"
+                  animate={{ scale: [1, 1.035, 1], filter: ["saturate(1)", "saturate(1.1)", "saturate(1)"] }}
+                  transition={{ duration: 7.5, repeat: Infinity, delay: 1 }}
+                >
+                  <img
+                    src="https://skillicons.dev/icons?i=nodejs,express,spring,mysql,mongodb,postman,git,github,androidstudio&perline=16"
+                    alt="Backend"
+                    className="max-w-full h-auto drop-shadow-[0_6px_28px_rgba(16,185,129,0.22)]"
+                  />
+                </motion.div>
+              </CardContent>
+              <div className="pointer-events-none absolute -inset-px rounded-2xl ring-1 ring-white/10" />
+            </GlassCard>
+          </motion.div>
+        </div>
+
+        {/* GitHub-derived quick insights */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12"
+        >
+          <GlassCard className="liquid-glass liquid-glass-hover">
+            <CardHeader>
+              <CardTitle className="text-xl flex items-center gap-3">
+                GitHub Overview
+                <span className="inline-flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  Live
+                </span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              {loading ? (
+                <p className="text-gray-600 dark:text-gray-400">Loading GitHub data…</p>
+              ) : error ? (
+                <p className="text-red-600 dark:text-red-400">{error}</p>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  <div>
+                    <div className="text-3xl font-extrabold text-blue-600 dark:text-blue-400">
+                      {user?.public_repos ?? 0}
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Public repos</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-extrabold text-blue-600 dark:text-blue-400">
+                      {totals.totalStars}
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Total stars</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-extrabold text-blue-600 dark:text-blue-400">
+                      {user?.followers ?? 0}
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Followers</div>
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <h4 className="text-sm font-semibold mb-2 text-gray-900 dark:text-white">Top languages (by repo count)</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {totals.topLanguages.map(([lang, count]) => (
+                        <span key={lang} className="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-sm">
+                          {lang}: {count}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </GlassCard>
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
