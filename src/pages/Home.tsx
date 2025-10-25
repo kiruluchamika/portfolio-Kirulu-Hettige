@@ -296,11 +296,27 @@ export default function Home() {
                   className="absolute right-0 top-1/2 -translate-y-1/2 flex flex-col gap-4"
                 >
                   {[
-                    { Icon: Github, href: 'https://github.com/kiruluchamika', color: 'hover:bg-gray-800' },
-                    { Icon: Linkedin, href: 'https://www.linkedin.com/in/kirulu-hettige-b9337b33b/', color: 'hover:bg-blue-700' },
-                    { Icon: Instagram, href: 'https://www.instagram.com/chami_x_mmii/', color: 'hover:bg-pink-600' },
-                    { Icon: Facebook, href: 'https://web.facebook.com/kirulu.chamika', color: 'hover:bg-blue-600' },
-                  ].map(({ Icon, href, color }, index) => (
+                    { 
+                      Icon: Github, 
+                      href: 'https://github.com/kiruluchamika', 
+                      brandColor: 'rgb(31 41 55)',
+                    },
+                    { 
+                      Icon: Linkedin, 
+                      href: 'https://www.linkedin.com/in/kirulu-hettige-b9337b33b/', 
+                      brandColor: 'rgb(37 99 235)',
+                    },
+                    { 
+                      Icon: Instagram, 
+                      href: 'https://www.instagram.com/chami_x_mmii/', 
+                      brandColor: 'linear-gradient(135deg, rgb(147 51 234) 0%, rgb(236 72 153) 100%)',
+                    },
+                    { 
+                      Icon: Facebook, 
+                      href: 'https://web.facebook.com/kirulu.chamika', 
+                      brandColor: 'rgb(37 99 235)',
+                    },
+                  ].map(({ Icon, href, brandColor }, index) => (
                     <motion.a
                       key={index}
                       href={href}
@@ -318,11 +334,49 @@ export default function Home() {
                         transition: { type: "spring", stiffness: 400, damping: 17 },
                       }}
                       whileTap={{ scale: 0.9 }}
-                      className={`p-3 rounded-full bg-gray-200/80 dark:bg-white/10 backdrop-blur-sm border border-gray-300 dark:border-white/20 ${color} transition-all shadow-lg animate-breathe`}
+                      className="relative p-3 rounded-full backdrop-blur-sm shadow-lg animate-breathe overflow-hidden"
                       aria-label={`Social ${index}`}
                       style={{ animationDelay: `${index * 0.5}s` }}
                     >
-                      <Icon className="w-5 h-5 text-gray-700 dark:text-white" />
+                      {/* Animated background layer */}
+                      <motion.div
+                        className="absolute inset-0 rounded-full"
+                        animate={{
+                          background: [
+                            'rgba(255, 255, 255, 0.1)',
+                            brandColor.startsWith('linear') ? brandColor : `${brandColor}`,
+                            'rgba(255, 255, 255, 0.1)',
+                          ],
+                          opacity: [0.8, 1, 0.8],
+                        }}
+                        transition={{
+                          duration: 6,
+                          repeat: Infinity,
+                          delay: index * 0.8,
+                          ease: "easeInOut",
+                        }}
+                        style={{
+                          background: 'rgba(255, 255, 255, 0.1)',
+                        }}
+                      />
+                      
+                      {/* Glass overlay with ring */}
+                      <div className="absolute inset-0 rounded-full ring-1 ring-white/20 dark:ring-white/10" />
+
+                      <motion.div
+                        animate={{
+                          scale: [1, 1.1, 1],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          delay: index * 0.3,
+                          ease: "easeInOut",
+                        }}
+                        className="relative z-10"
+                      >
+                        <Icon className="w-5 h-5 text-white dark:text-white" />
+                      </motion.div>
                     </motion.a>
                   ))}
                 </motion.div>

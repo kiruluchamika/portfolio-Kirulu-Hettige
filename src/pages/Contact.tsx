@@ -23,15 +23,24 @@ export default function Contact() {
     e.preventDefault();
     setFormState('loading');
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const res = await fetch('/api/send-contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-    if (formData.name && formData.email && formData.message) {
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || 'Failed to send message');
+      }
+
       setFormState('success');
       setTimeout(() => {
         setFormState('idle');
         setFormData({ name: '', email: '', subject: '', message: '' });
       }, 3000);
-    } else {
+    } catch (err) {
       setFormState('error');
       setTimeout(() => setFormState('idle'), 3000);
     }
