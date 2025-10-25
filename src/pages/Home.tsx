@@ -3,6 +3,7 @@ import { Mail, Facebook, Instagram, Linkedin, ChevronDown, Code2, Database, Layo
 import imgCarepro from '../assets/carepro.jpeg';
 import imgRideease from '../assets/rideease.png';
 import imgGgm from '../assets/ggm.png';
+import myImg from '../assets/myimg.png';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import GlassStatCard from '../components/GlassStatCard';
@@ -275,7 +276,7 @@ export default function Home() {
                 {/* Your profile image */}
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
                   <img
-                    src="/src/assets/myimg.png"
+                    src={myImg}
                     alt="Kirulu Chamika"
                     className="w-full h-full object-cover object-center"
                     onError={(e) => {
