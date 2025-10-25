@@ -88,14 +88,21 @@ export default function Skills() {
               <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-cyan-600 mr-4 rounded-full" />
               Languages
             </h2>
-            <GlassCard>
+            <GlassCard className="relative overflow-hidden rounded-2xl liquid-glass liquid-glass-hover">
               <CardContent className="p-6 flex justify-center">
-                <img
-                  src="https://skillicons.dev/icons?i=c,cpp,java,php,js,ts,html,css&perline=16"
-                  alt="Languages"
-                  className="max-w-full h-auto"
-                />
+                <motion.div
+                  className="animate-breathe"
+                  animate={{ scale: [1, 1.03, 1], filter: ["brightness(1)", "brightness(1.08)", "brightness(1)"] }}
+                  transition={{ duration: 7, repeat: Infinity }}
+                >
+                  <img
+                    src="https://skillicons.dev/icons?i=c,cpp,java,php,js,ts,html,css&perline=16"
+                    alt="Languages"
+                    className="max-w-full h-auto drop-shadow-[0_4px_24px_rgba(59,130,246,0.25)]"
+                  />
+                </motion.div>
               </CardContent>
+              <div className="pointer-events-none absolute -inset-px rounded-2xl ring-1 ring-white/10" />
             </GlassCard>
           </motion.div>
 
@@ -104,14 +111,22 @@ export default function Skills() {
               <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-cyan-600 mr-4 rounded-full" />
               Frontend / UI
             </h2>
-            <GlassCard>
+            <GlassCard className="relative overflow-hidden rounded-2xl liquid-glass liquid-glass-hover">
               <CardContent className="p-6 flex justify-center">
-                <img
-                  src="https://skillicons.dev/icons?i=react,nextjs,tailwind,figma,vite&perline=16"
-                  alt="Frontend"
-                  className="max-w-full h-auto"
-                />
+                <motion.div
+                  className="animate-breathe"
+                  animate={{ scale: [1, 1.04, 1], y: [0, -2, 0] }}
+                  transition={{ duration: 6.5, repeat: Infinity, delay: 0.5 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <img
+                    src="https://skillicons.dev/icons?i=react,nextjs,tailwind,figma,vite&perline=16"
+                    alt="Frontend"
+                    className="max-w-full h-auto drop-shadow-[0_6px_28px_rgba(99,102,241,0.25)]"
+                  />
+                </motion.div>
               </CardContent>
+              <div className="pointer-events-none absolute -inset-px rounded-2xl ring-1 ring-white/10" />
             </GlassCard>
           </motion.div>
 
@@ -120,14 +135,21 @@ export default function Skills() {
               <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-cyan-600 mr-4 rounded-full" />
               Backend / DevOps
             </h2>
-            <GlassCard>
+            <GlassCard className="relative overflow-hidden rounded-2xl liquid-glass liquid-glass-hover">
               <CardContent className="p-6 flex justify-center">
-                <img
-                  src="https://skillicons.dev/icons?i=nodejs,express,spring,mysql,mongodb,postman,git,github,androidstudio&perline=16"
-                  alt="Backend"
-                  className="max-w-full h-auto"
-                />
+                <motion.div
+                  className="animate-breathe"
+                  animate={{ scale: [1, 1.035, 1], filter: ["saturate(1)", "saturate(1.1)", "saturate(1)"] }}
+                  transition={{ duration: 7.5, repeat: Infinity, delay: 1 }}
+                >
+                  <img
+                    src="https://skillicons.dev/icons?i=nodejs,express,spring,mysql,mongodb,postman,git,github,androidstudio&perline=16"
+                    alt="Backend"
+                    className="max-w-full h-auto drop-shadow-[0_6px_28px_rgba(16,185,129,0.22)]"
+                  />
+                </motion.div>
               </CardContent>
+              <div className="pointer-events-none absolute -inset-px rounded-2xl ring-1 ring-white/10" />
             </GlassCard>
           </motion.div>
         </div>
@@ -139,9 +161,15 @@ export default function Skills() {
           viewport={{ once: true }}
           className="mt-12"
         >
-          <GlassCard>
+          <GlassCard className="liquid-glass liquid-glass-hover">
             <CardHeader>
-              <CardTitle className="text-xl">GitHub Overview</CardTitle>
+              <CardTitle className="text-xl flex items-center gap-3">
+                GitHub Overview
+                <span className="inline-flex items-center gap-1 text-xs text-emerald-600 dark:text-emerald-400">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  Live
+                </span>
+              </CardTitle>
             </CardHeader>
             <CardContent>
               {loading ? (
