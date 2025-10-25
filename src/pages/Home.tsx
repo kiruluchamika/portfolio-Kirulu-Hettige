@@ -587,8 +587,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 5: Featured Projects */}
-      <section className="py-20 relative" data-speed="0.92">
+  {/* Section 5: Featured Projects (no parallax to avoid overlap) */}
+  <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -687,8 +687,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section 6: Experience & Education */}
-      <section className="py-20 relative" data-speed="1.08">
+  {/* Section 6: Experience & Education (no parallax to avoid overlap) */}
+  <section className="py-20 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
