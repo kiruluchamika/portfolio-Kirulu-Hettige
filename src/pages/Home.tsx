@@ -404,7 +404,7 @@ export default function Home() {
       </section>
 
       {/* Section 2: Statistics */}
-      <section className="py-20 relative">
+      <section className="py-20 relative z-20 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-cyan-50/30 dark:from-gray-900/80 dark:via-gray-900/80 dark:to-blue-950/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
@@ -415,7 +415,7 @@ export default function Home() {
       </section>
 
       {/* Section 3: About Me */}
-      <section className="py-20 relative">
+      <section className="py-20 relative z-20 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-cyan-50/30 dark:from-gray-900/80 dark:via-gray-900/80 dark:to-blue-950/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -557,7 +557,7 @@ export default function Home() {
       </section>
 
       {/* Section 4: Tech Stack */}
-      <section className="py-20 relative">
+      <section className="py-20 relative z-20 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-cyan-50/30 dark:from-gray-900/80 dark:via-gray-900/80 dark:to-blue-950/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -642,7 +642,7 @@ export default function Home() {
       </section>
 
   {/* Section 5: Featured Projects (no parallax to avoid overlap) */}
-  <section className="py-20 relative">
+  <section className="py-20 relative z-20 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-cyan-50/30 dark:from-gray-900/80 dark:via-gray-900/80 dark:to-blue-950/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -742,7 +742,7 @@ export default function Home() {
       </section>
 
   {/* Section 6: Experience & Education (no parallax to avoid overlap) */}
-  <section className="py-20 relative">
+  <section className="py-20 relative z-20 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-cyan-50/30 dark:from-gray-900/80 dark:via-gray-900/80 dark:to-blue-950/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -801,7 +801,7 @@ export default function Home() {
       </section>
 
       {/* Section 7: Call to Action */}
-      <section className="py-20 relative">
+      <section className="py-20 relative z-20 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-cyan-50/30 dark:from-gray-900/80 dark:via-gray-900/80 dark:to-blue-950/30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
