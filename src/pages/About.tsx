@@ -21,7 +21,7 @@ const timeline: TimelineItem[] = [
     icon: Briefcase,
   },
   {
-    year: '2022 – Present',
+    year: '2023 – Present',
     title: 'B.Sc. in Software Engineering',
     organization: 'Sri Lanka Institute of Information Technology (SLIIT)',
     description: 'Undergraduate studies focused on software architecture, algorithms, and full‑stack development.',
