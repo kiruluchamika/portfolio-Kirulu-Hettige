@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Facebook, Instagram, Linkedin, ChevronDown, Code2, Database, Layout, Server, Terminal, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
+import { Mail, Facebook, Instagram, Linkedin, ChevronDown, Code2, Database, Server, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
 import imgCarepro from '../assets/carepro.jpeg';
 import imgRideease from '../assets/rideease.png';
 import imgGgm from '../assets/ggm.png';
