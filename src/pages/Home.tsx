@@ -8,7 +8,6 @@ import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import GlassStatCard from '../components/GlassStatCard';
 import GlassCard from '../components/GlassCard';
-import GitHubReadmeStats from '../components/GitHubReadmeStats';
 import { Badge } from '../components/ui/badge';
 import { Link } from 'react-router-dom';
 import Typewriter from '../components/Typewriter';
@@ -40,33 +39,6 @@ export default function Home() {
       x: 0,
       scale: 1,
     },
-  };
-
-  const techStack = {
-    frontend: [
-      { name: 'React.js', icon: Code2, level: 90 },
-      { name: 'TypeScript', icon: Terminal, level: 85 },
-      { name: 'Tailwind CSS', icon: Layout, level: 90 },
-      { name: 'Next.js', icon: Code2, level: 80 },
-    ],
-    backend: [
-      { name: 'Node.js', icon: Server, level: 85 },
-      { name: 'Spring Boot', icon: Server, level: 80 },
-      { name: 'Express.js', icon: Server, level: 85 },
-      { name: 'REST APIs', icon: Database, level: 90 },
-    ],
-    database: [
-      { name: 'MongoDB', icon: Database, level: 85 },
-      { name: 'PostgreSQL', icon: Database, level: 80 },
-      { name: 'MySQL', icon: Database, level: 75 },
-      { name: 'Redis', icon: Database, level: 70 },
-    ],
-    tools: [
-      { name: 'Git & GitHub', icon: Github, level: 90 },
-      { name: 'Docker', icon: Server, level: 75 },
-      { name: 'VS Code', icon: Code2, level: 95 },
-      { name: 'Postman', icon: Terminal, level: 85 },
-    ],
   };
 
   const projects = [
@@ -552,91 +524,6 @@ export default function Home() {
                 </CardContent>
               </GlassCard>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4: Tech Stack */}
-      <section className="py-20 relative z-20 bg-gradient-to-br from-gray-50/80 via-blue-50/30 to-cyan-50/30 dark:from-gray-900/80 dark:via-gray-900/80 dark:to-blue-950/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Tech Stack
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              Technologies and tools I work with
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {Object.entries(techStack).map(([category, techs], categoryIndex) => (
-              <motion.div
-                key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: categoryIndex * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <GlassCard className="hover:shadow-2xl transition-shadow">
-                  <CardHeader>
-                    <CardTitle className="text-xl text-gray-900 dark:text-white capitalize">
-                      {category}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    {techs.map((tech, index) => (
-                      <motion.div
-                        key={index}
-                        whileHover={{ x: 5 }}
-                        transition={{ type: "spring", stiffness: 400 }}
-                      >
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-2">
-                            <motion.div
-                              animate={{
-                                scale: [1, 1.1, 1],
-                              }}
-                              transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                delay: index * 0.2,
-                              }}
-                            >
-                              <tech.icon className="w-5 h-5 text-blue-500 dark:text-blue-400" />
-                            </motion.div>
-                            <span className="text-sm font-medium text-gray-900 dark:text-white">
-                              {tech.name}
-                            </span>
-                          </div>
-                          <span className="text-sm text-gray-600 dark:text-gray-400">
-                            {tech.level}%
-                          </span>
-                        </div>
-                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${tech.level}%` }}
-                            transition={{ duration: 1, delay: 0.2 }}
-                            viewport={{ once: true }}
-                            className="h-full bg-gradient-to-r from-blue-500 to-blue-600 dark:from-blue-400 dark:to-blue-500"
-                          />
-                        </div>
-                      </motion.div>
-                    ))}
-                  </CardContent>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* GitHub Readme-style stats */}
-          <div className="mt-12">
-            <GitHubReadmeStats username="kiruluchamika" />
           </div>
         </div>
       </section>
