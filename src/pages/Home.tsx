@@ -201,7 +201,7 @@ export default function Home() {
                 transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9], delay: 0.6 }}
                 className="flex flex-wrap gap-4 pt-4"
               >
-                <a href="/resume.pdf" download>
+                <a href="/resume.pdf" download="Kirulu Hettige CV.pdf">
                   <motion.div
                     whileHover={{ scale: 1.05, boxShadow: "0 20px 60px rgba(59, 130, 246, 0.4)" }}
                     whileTap={{ scale: 0.95 }}
@@ -728,7 +728,7 @@ export default function Home() {
                       className="rounded-full bg-black/80 text-white hover:bg-black/85 px-7 sm:px-8 py-6 text-base font-semibold shadow-xl ring-1 ring-blue-300/70 hover:ring-blue-200 transition-all"
                       asChild
                     >
-                      <a href="/resume.pdf" download>
+                      <a href="/resume.pdf" download="Kirulu Hettige CV.pdf">
                         <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/10 ring-1 ring-white/30">
                           <Download className="w-3.5 h-3.5" />
                         </span>
