@@ -12,6 +12,8 @@ import imgRideease from '../assets/rideease.png';
 import imgPay from '../assets/pay.png';
 import imgDigicare from '../assets/digicare.png';
 import imgFav from '../assets/fav1.png';
+import imgClinexa from '../assets/clinexa.png';
+import imgBazaaro from '../assets/bazaaro.jpeg';
 
 type Project = {
   id: number;
@@ -45,7 +47,7 @@ const projects: Project[] = [
       'Ride‑hailing web app using Java Servlets/JSP and MySQL with Passenger, Driver, and Admin portals.',
     category: 'Web',
     tags: ['Java', 'JSP/Servlets', 'MySQL', 'Tailwind'],
-    progress: 95,
+    progress: 100,
     image: imgRideease,
     github: 'https://github.com/kiruluchamika/RideEase-Transport-System-OOP-Project',
   },
@@ -67,7 +69,7 @@ const projects: Project[] = [
       'Simple PayHere sandbox payment flow with card testing, secure front-end and PHP processing.',
     category: 'Web',
     tags: ['PHP', 'JavaScript', 'HTML', 'CSS'],
-    progress: 90,
+    progress: 100,
     image: imgPay,
     github: 'https://github.com/kiruluchamika/Simple-Sandbox-Payment-Gateway-Integration',
   },
@@ -78,7 +80,7 @@ const projects: Project[] = [
       'Inventory dashboard with items, suppliers, alerts, and PDF reports using React + TypeScript and a REST API backend.',
     category: 'Web',
     tags: ['React', 'TypeScript', 'Node.js', 'SQL'],
-    progress: 85,
+    progress: 100,
     image: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=1200&auto=format&fit=crop',
     github: 'https://github.com/kiruluchamika/Simple_MERN_Inventory_System',
   },
@@ -89,7 +91,7 @@ const projects: Project[] = [
       'Simple Java Servlets-based CRUD store with admin and client sides.',
     category: 'Web',
     tags: ['Java', 'Servlets', 'JSP', 'MySQL'],
-    progress: 70,
+    progress: 100,
     image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1200&auto=format&fit=crop',
     github: 'https://github.com/kiruluchamika/OnlineShoppingStore-simple-java-servlet-project',
   },
@@ -103,6 +105,28 @@ const projects: Project[] = [
     progress: 100,
     image: imgFav,
     github: 'https://github.com/kiruluchamika/portfolio-Kirulu-Hettige',
+  },
+  {
+    id: 10,
+    title: 'Clinexa – Healthcare Microservices',
+    description:
+      'Dockerized microservices healthcare platform with a Spring Boot JWT auth service, React frontend, MySQL, and Nginx reverse proxy.',
+    category: 'Web',
+    tags: ['React', 'TypeScript', 'Spring Boot', 'Docker', 'MySQL', 'JWT'],
+    progress: 100,
+    image: imgClinexa,
+    github: 'https://github.com/kiruluchamika/Smart-Healthcare-Microservices-Y3S1_DS',
+  },
+  {
+    id: 11,
+    title: 'Bazaaro – Hyperlocal Marketplace',
+    description:
+      'Full-stack marketplace for buying products and booking local services, with Stripe payments, OTP-verified delivery, and real-time notifications.',
+    category: 'Web',
+    tags: ['React', 'Node.js', 'TypeScript', 'MongoDB', 'Stripe', 'Socket.IO'],
+    progress: 100,
+    image: imgBazaaro,
+    github: 'https://github.com/kiruluchamika/Hyperlocal-Marketplace-for-Products-Services-Project',
   },
   // Mobile apps
   {

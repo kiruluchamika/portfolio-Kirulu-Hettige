@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { Mail, Facebook, Instagram, Linkedin, ChevronDown, Code2, Database, Server, Github, ExternalLink, GraduationCap, Briefcase, GitBranch } from 'lucide-react';
-import imgCarepro from '../assets/carepro.jpeg';
-import imgRideease from '../assets/rideease.png';
 import imgGgm from '../assets/ggm.png';
+import imgClinexa from '../assets/clinexa.png';
+import imgBazaaro from '../assets/bazaaro.jpeg';
+import logoSliit from '../assets/sliit.png';
+import logoServatius from '../assets/servatius.png';
+import logoCeylonX from '../assets/ceylonX.png';
 import myImg from '../assets/myimg.png';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
@@ -52,22 +55,22 @@ export default function Home() {
       demo: 'https://github.com/kiruluchamika/Golden-Grain-Mill-ITP-Project',
     },
     {
-      title: 'RideEase — Transport System',
+      title: 'Clinexa — Healthcare Microservices',
       description:
-        'Ride‑hailing web app built with Java Servlets/JSP and MySQL; supports Passenger, Driver, and Admin portals with role‑based features.',
-      tech: ['Java', 'JSP/Servlets', 'MySQL', 'Tailwind'],
-      image: imgRideease,
-      github: 'https://github.com/kiruluchamika/RideEase-Transport-System-OOP-Project',
-      demo: 'https://github.com/kiruluchamika/RideEase-Transport-System-OOP-Project',
+        'Dockerized microservices healthcare platform with a Spring Boot JWT auth service, React frontend, MySQL, and Nginx reverse proxy.',
+      tech: ['React', 'TypeScript', 'Spring Boot', 'Docker'],
+      image: imgClinexa,
+      github: 'https://github.com/kiruluchamika/Smart-Healthcare-Microservices-Y3S1_DS',
+      demo: 'https://github.com/kiruluchamika/Smart-Healthcare-Microservices-Y3S1_DS',
     },
     {
-      title: 'CarePro — Health Insurance',
+      title: 'Bazaaro — Hyperlocal Marketplace',
       description:
-        'Dynamic health insurance management system with auth, plans, claims, and admin dashboards built for SLIIT IWT module.',
-      tech: ['PHP', 'MySQL', 'HTML/CSS', 'JavaScript'],
-      image: imgCarepro,
-      github: 'https://github.com/kiruluchamika/SLIIT-IWT-Project-2024',
-      demo: 'https://github.com/kiruluchamika/SLIIT-IWT-Project-2024',
+        'Full‑stack marketplace for buying products and booking local services, with Stripe payments, OTP‑verified delivery, and real‑time notifications.',
+      tech: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      image: imgBazaaro,
+      github: 'https://github.com/kiruluchamika/Hyperlocal-Marketplace-for-Products-Services-Project',
+      demo: 'https://github.com/kiruluchamika/Hyperlocal-Marketplace-for-Products-Services-Project',
     },
   ];
 
@@ -80,11 +83,20 @@ export default function Home() {
 
   const experience = [
     {
+      type: 'work',
+      title: 'Software Engineering Intern',
+      organization: 'CeylonX Corporation',
+      period: 'June 2026 - Present',
+      description: 'Working on real-world full-stack features as part of the engineering team, applying and growing my skills in a professional setting.',
+      logo: logoCeylonX,
+    },
+    {
       type: 'education',
       title: 'B.Sc. in Software Engineering',
       organization: 'Sri Lanka Institute of Information Technology (SLIIT)',
       period: '2022 - Present',
       description: 'GPA: 3.7/4.0 - Focused on software architecture, algorithms, and full-stack development.',
+      logo: logoSliit,
     },
     {
       type: 'education',
@@ -92,6 +104,7 @@ export default function Home() {
       organization: 'St. Servatius College',
       period: 'Pre‑University',
       description: 'Completed secondary education with strong focus on mathematics and computing fundamentals.',
+      logo: logoServatius,
     },
   ];
 
@@ -660,18 +673,27 @@ export default function Home() {
                   <GlassCard>
                     <CardHeader>
                       <div className="flex items-start justify-between gap-4">
-                        <div className="flex-1">
-                          <CardTitle className="text-xl text-gray-900 dark:text-white mb-1">
-                            {item.title}
-                          </CardTitle>
-                          <p className="text-blue-600 dark:text-blue-400 font-medium">
-                            {item.organization}
-                          </p>
+                        <div className="flex items-start gap-4 flex-1">
+                          <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex-shrink-0 ring-1 ring-blue-400/30 flex items-center justify-center">
+                            <img
+                              src={item.logo}
+                              alt={`${item.organization} logo`}
+                              className="w-full h-full object-contain p-1"
+                            />
+                          </div>
+                          <div>
+                            <CardTitle className="text-xl text-gray-900 dark:text-white mb-1">
+                              {item.title}
+                            </CardTitle>
+                            <p className="text-blue-600 dark:text-blue-400 font-medium">
+                              {item.organization}
+                            </p>
+                          </div>
                         </div>
                         {item.type === 'education' ? (
-                          <GraduationCap className="w-6 h-6 text-blue-500 dark:text-blue-400" />
+                          <GraduationCap className="w-6 h-6 text-blue-500 dark:text-blue-400 flex-shrink-0" />
                         ) : (
-                          <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400" />
+                          <Briefcase className="w-6 h-6 text-blue-500 dark:text-blue-400 flex-shrink-0" />
                         )}
                       </div>
                       <p className="text-sm text-gray-600 dark:text-gray-400">{item.period}</p>

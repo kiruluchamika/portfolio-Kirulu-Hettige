@@ -1,38 +1,41 @@
 import { motion } from 'framer-motion';
-import { GraduationCap, Award, Briefcase, CheckCircle2, Download } from 'lucide-react';
+import { CheckCircle2, Download } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { CardContent } from '../components/ui/card';
 import GlassCard from '../components/GlassCard';
+import logoSliit from '../assets/sliit.png';
+import logoServatius from '../assets/servatius.png';
+import logoCeylonX from '../assets/ceylonX.png';
 
 type TimelineItem = {
   year: string;
   title: string;
   organization: string;
   description: string;
-  icon: typeof GraduationCap;
+  logo: string;
 };
 
 const timeline: TimelineItem[] = [
   {
-    year: 'Present',
-    title: 'Seeking Software Engineering Internship',
-    organization: 'Open to opportunities',
-    description: 'Actively looking for an internship while building real‑world projects and sharpening full‑stack skills.',
-    icon: Briefcase,
+    year: 'June 2026 – Present',
+    title: 'Software Engineering Intern',
+    organization: 'CeylonX Corporation',
+    description: 'Working on real‑world full‑stack features as part of the engineering team, applying and growing my skills in a professional setting.',
+    logo: logoCeylonX,
   },
   {
     year: '2023 – Present',
     title: 'B.Sc. in Software Engineering',
     organization: 'Sri Lanka Institute of Information Technology (SLIIT)',
     description: 'Undergraduate studies focused on software architecture, algorithms, and full‑stack development.',
-    icon: GraduationCap,
+    logo: logoSliit,
   },
   {
     year: 'Pre‑University',
     title: 'Secondary Education',
     organization: 'St. Servatius College',
     description: 'Completed secondary education with an emphasis on mathematics and computing fundamentals.',
-    icon: Award,
+    logo: logoServatius,
   },
 ];
 
@@ -154,7 +157,6 @@ export default function About() {
 
             <div className="space-y-8">
               {timeline.map((item, index) => {
-                const Icon = item.icon;
                 return (
                   <motion.div
                     key={index}
@@ -166,9 +168,13 @@ export default function About() {
                     <motion.div
                       whileHover={{ scale: 1.2, rotate: 360 }}
                       transition={{ duration: 0.6 }}
-                      className="absolute left-5 top-6 w-8 h-8 rounded-full bg-gradient-to-br from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 flex items-center justify-center shadow-lg"
+                      className="absolute left-5 top-6 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-lg ring-1 ring-blue-400/30 overflow-hidden"
                     >
-                      <Icon className="w-4 h-4 text-white" />
+                      <img
+                        src={item.logo}
+                        alt={`${item.organization} logo`}
+                        className="w-full h-full object-contain p-0.5"
+                      />
                     </motion.div>
 
                     <GlassCard className="hover:shadow-xl transition-shadow">
